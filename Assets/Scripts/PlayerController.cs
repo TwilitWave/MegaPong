@@ -81,7 +81,7 @@ public class PlayerController : MonoBehaviour {
             }
             else
             {
-                Manager.RestartLevel();
+                Manager.PlayerDies(_PlayerNum);
             }
         }
     }
@@ -94,6 +94,11 @@ public class PlayerController : MonoBehaviour {
         _CapturedBall.transform.position = _CannonObject.transform.position;
         _CapturedBall.GetComponent<Collider>().enabled = false;
         _CapturedBall.transform.parent = transform;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        CaptureBall(other.gameObject);
     }
 
     private void Shoot()

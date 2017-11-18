@@ -93,6 +93,7 @@ public class GameManager1 : MonoBehaviour {
         if (balls.Count > 0) {
             balls.ForEach(DestroyTransform);
         }
+        balls.Clear();
         paddle1.transform.position = player1StartPosition;
         paddle2.transform.position = player2StartPosition;
         SpawnBall();
