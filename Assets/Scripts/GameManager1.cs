@@ -111,13 +111,14 @@ public class GameManager1 : MonoBehaviour {
     public void SpawnBall() {
         float randX = Random.Range(leftSpawnBound, rightSpawnBound);
         float randY = Random.Range(bottomSpawnBound, topSpawnBound);
-        float dirX = Random.Range(-1, 1);
+        float dirX = Random.Range(-1.0f, 1.0f);
         while (dirX == 0) {
-            dirX = Random.Range(-1, 1);
+            dirX = Random.Range(-1.0f, 1.0f);
         }
-        float dirY = Random.Range(-1, 1);
+        float dirY = Random.Range(-1.0f, 1.0f);
         Vector3 startVelocity = startingBallSpeed * (new Vector3(dirX, dirY, 0)).normalized;
         Transform newBall = Instantiate(defBall, new Vector3(randX, randY, 0), Quaternion.identity);
+        Debug.Log(startVelocity);
         newBall.GetComponent<BallScript>().SetVelocity(startVelocity);
         balls.Add(newBall);
     }

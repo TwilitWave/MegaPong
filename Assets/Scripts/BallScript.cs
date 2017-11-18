@@ -8,9 +8,9 @@ public class BallScript : MonoBehaviour {
     public Vector3 velocity;
 
     // Use this for initialization
-    void OnAwake() {
+    void Awake() {
+        Debug.Log("Initializing new ball.");
         sphereBody = GetComponent<Rigidbody>();
-        sphereBody.velocity = new Vector2(5, 0);
     }
 
     void Start () {
