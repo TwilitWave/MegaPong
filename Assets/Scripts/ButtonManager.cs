@@ -9,5 +9,10 @@ public class ButtonManager : MonoBehaviour {
     {
         SceneManager.LoadScene(gameLevel);
     }
-    
+
+    public void ExitGameBttn()
+    {
+        Application.Quit();
+    }
+
 }
