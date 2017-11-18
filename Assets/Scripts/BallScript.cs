@@ -33,10 +33,6 @@ public class BallScript : MonoBehaviour {
         {
             velocity = sphereBody.velocity;
         }
-        if(collision.gameObject.tag == "Player")
-        {
-            Destroy(collision.gameObject);
-        }
     }
 
     void Update () {
