@@ -96,11 +96,6 @@ public class PlayerController : MonoBehaviour {
         _CapturedBall.transform.parent = transform;
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        CaptureBall(other.gameObject);
-    }
-
     private void Shoot()
     {
         if (_CapturedBall != null)

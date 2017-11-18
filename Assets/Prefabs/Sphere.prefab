@@ -111,9 +111,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2907fca15f5b4af44806ff80826cbba9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocityScale: 1
+  velocityScale: 4
   sphereBody: {fileID: 54755632124664022}
   velocity: {x: 1, y: 0, z: 0}
+  savedVelocity: {x: 0, y: 0, z: 0}
 --- !u!135 &135271657265334946
 SphereCollider:
   m_ObjectHideFlags: 1

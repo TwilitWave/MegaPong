@@ -66,11 +66,11 @@ public class GameManager1 : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetKeyDown(KeyCode.A)) {
+		/*if(Input.GetKeyDown(KeyCode.A)) {
             AddToScore(1);
         } else if (Input.GetKeyDown(KeyCode.S)) {
             AddToScore(2);
-        }
+        }*/
         if (Input.GetKeyDown(KeyCode.KeypadEnter)) {
             if (state == GameState.Main_Game) {
                 PauseGame();
