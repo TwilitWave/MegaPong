@@ -53,7 +53,7 @@ public class GameManager1 : MonoBehaviour {
         if (!exists) {
             DontDestroyOnLoad(this.gameObject);
             balls = new List<Transform>();
-            ChangeScore(1, 2);
+            ChangeScore(0, 0);
             StartLevel();
         } else {
             Destroy(this.gameObject);
@@ -71,7 +71,7 @@ public class GameManager1 : MonoBehaviour {
 
     // Start Level
     public void StartLevel() {
-        ChangeScore(0, 0);
+        ChangeScore(player1Score, player2Score);
         RestartLevel();
     }
 
