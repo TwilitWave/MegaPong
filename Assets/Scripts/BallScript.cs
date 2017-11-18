@@ -3,22 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BallScript : MonoBehaviour {
-
-    private Vector2 velocity = new Vector2();
     public float velocityScale;
+    public Rigidbody sphereBody;
+    public Vector3 velocity;
 
     // Use this for initialization
     void Start () {
         //Random Speed
-        velocity = new Vector2(Random.Range(-1, 2), Random.Range(-1, 2)) * velocityScale;
+        sphereBody = GetComponent<Rigidbody>();
+        sphereBody.velocity = new Vector2(5, 0);
+    }
 
+    public void SetVelocity(Vector2 i_velocity)
+    {
+        sphereBody.velocity = i_velocity;
+        velocity = i_velocity;
+    }
+    public Vector2 GetVelocity()
+    {
+        return sphereBody.velocity;
     }
 
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Obstacle")
         {
-            velocity *= -1;
+            velocity = sphereBody.velocity;
         }
         if(collision.gameObject.tag == "Player")
         {
@@ -27,7 +37,6 @@ public class BallScript : MonoBehaviour {
     }
 
     void Update () {
-        
-        transform.Translate(velocity.x, velocity.y, 0);
+        sphereBody.velocity = velocity;
     }
 }
