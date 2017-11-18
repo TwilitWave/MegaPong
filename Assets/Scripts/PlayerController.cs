@@ -30,6 +30,11 @@ public class PlayerController : MonoBehaviour {
     private float _CaptureCooldown;
     private float _CooldownTimer;
 
+    [SerializeField]
+    private float _MaxTravel = 4f;
+
+    private float _PrevShootAxis;
+
     private GameObject _CannonObject; 
 
     // Use this for initialization
@@ -46,8 +51,12 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetAxis(_InputMoveAxis) != 0)
         {
             transform.position += transform.up * _Speed * Time.deltaTime * Input.GetAxis(_InputMoveAxis);
+
+            float clampedY = Mathf.Clamp(transform.position.y, -_MaxTravel, _MaxTravel);
+
+            transform.position = new Vector3(transform.position.x, clampedY, transform.position.z);
         }
-        if (Input.GetAxis(_InputShootAxis) != 0)
+        if (Input.GetAxis(_InputShootAxis) != 0 && _PrevShootAxis == 0)
         {
             Shoot();
         }
@@ -67,6 +76,8 @@ public class PlayerController : MonoBehaviour {
         {
             _CooldownTimer -= Time.deltaTime;
         }
+
+        _PrevShootAxis = Input.GetAxis(_InputShootAxis);
     }
 
     //This is called by the child object on collision
@@ -94,11 +105,6 @@ public class PlayerController : MonoBehaviour {
         _CapturedBall.transform.position = _CannonObject.transform.position;
         _CapturedBall.GetComponent<Collider>().enabled = false;
         _CapturedBall.transform.parent = transform;
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        CaptureBall(other.gameObject);
     }
 
     private void Shoot()
