@@ -9,5 +9,13 @@ public class ButtonManager : MonoBehaviour {
     {
         SceneManager.LoadScene(gameLevel);
     }
-    
+
+    public void SetActive(GameObject item)
+    {
+        item.SetActive(true);
+    }
+    public void SetInactive(GameObject item)
+    {
+        item.SetActive(false);
+    }
 }
