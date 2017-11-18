@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class GameManager1 : MonoBehaviour {
 
+    // Static variables
+    public static bool exists;
+
     // All the objects the game manager needs to see
     public PlayerController paddle1;
     public PlayerController paddle2;
@@ -47,8 +50,14 @@ public class GameManager1 : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        ChangeScore(1, 2);
-        StartLevel();
+        if (!exists) {
+            DontDestroyOnLoad(this.gameObject);
+            balls = new List<Transform>();
+            ChangeScore(1, 2);
+            StartLevel();
+        } else {
+            Destroy(this.gameObject);
+        }
 	}
 	
 	// Update is called once per frame
@@ -63,16 +72,17 @@ public class GameManager1 : MonoBehaviour {
     // Start Level
     public void StartLevel() {
         ChangeScore(0, 0);
-        paddle1.transform.position = player1StartPosition;
-        paddle2.transform.position = player2StartPosition;
-        SpawnBall();
+        RestartLevel();
     }
 
     // Restart Level
     public void RestartLevel() {
+        if (balls.Count > 0) {
+            balls.ForEach(DestroyTransform);
+        }
         paddle1.transform.position = player1StartPosition;
         paddle2.transform.position = player2StartPosition;
-        //ball1.trasform.position = ball1StartPosition;
+        SpawnBall();
     }
 
     // Add to score
@@ -98,7 +108,7 @@ public class GameManager1 : MonoBehaviour {
     }
 
     // Open Menu
-    public void OpenMenu() {
+    public void OpenEndLevelMenu(int winnerId) {
 
     }
 
@@ -123,4 +133,27 @@ public class GameManager1 : MonoBehaviour {
         balls.Add(newBall);
     }
 
+    // Player Die
+    public void PlayerDies(int playerId) {
+        int winnerId;
+        if (playerId == 1) {
+            winnerId = 2;
+        }
+        else if (playerId == 2) {
+            winnerId = 1;
+        }
+        else {
+            // Throw Error
+            winnerId = 0;
+            Debug.Log("You fool, that isn't a valid player ID!");
+        }
+        OpenEndLevelMenu(winnerId);
+        AddToScore(winnerId);
+        RestartLevel();
+    }
+
+    public void DestroyTransform(Transform tranform) {
+        Destroy(transform.gameObject);
+    }
+    
 }
