@@ -15,7 +15,7 @@ public class GameManager1 : MonoBehaviour {
     public Transform defBall;
     public Text scorePlayer1;
     public Text scorePlayer2;
-    
+    public Text pauseText;
 
     
     // All Serializable fields
@@ -48,6 +48,10 @@ public class GameManager1 : MonoBehaviour {
     private int player2Score;
     private List<Transform> balls;
 
+    private enum GameState {Main_Menu, Main_Game, Pause_Menu, Level_Menu};
+    private GameState state;
+
+
     // Use this for initialization
     void Start () {
         if (!exists) {
@@ -67,6 +71,13 @@ public class GameManager1 : MonoBehaviour {
         } else if (Input.GetKeyDown(KeyCode.S)) {
             AddToScore(2);
         }
+        if (Input.GetKeyDown(KeyCode.KeypadEnter)) {
+            if (state == GameState.Main_Game) {
+                PauseGame();
+            } else if (state == GameState.Pause_Menu) {
+                ResumeGame();
+            }
+        }
     }
 
     // Start Level
@@ -77,6 +88,8 @@ public class GameManager1 : MonoBehaviour {
 
     // Restart Level
     public void RestartLevel() {
+        state = GameState.Main_Game;
+        pauseText.enabled = false;
         if (balls.Count > 0) {
             balls.ForEach(DestroyTransform);
         }
@@ -152,8 +165,40 @@ public class GameManager1 : MonoBehaviour {
         RestartLevel();
     }
 
-    public void DestroyTransform(Transform tranform) {
-        Destroy(transform.gameObject);
+    public void DestroyTransform(Transform tf) {
+        Destroy(tf.gameObject);
     }
     
+    public void PauseGame() {
+        state = GameState.Pause_Menu;
+        pauseText.enabled = true;
+        paddle1.GetComponent<PlayerController>().enabled = false;
+        paddle1.GetComponentInChildren<PointerMotor>().enabled = false;
+        paddle2.GetComponent<PlayerController>().enabled = false;
+        paddle2.GetComponentInChildren<PointerMotor>().enabled = false;
+        balls.ForEach(StopMovingBall);
+    }
+
+    public void ResumeGame() {
+        state = GameState.Main_Game;
+        pauseText.enabled = false;
+        paddle1.GetComponent<PlayerController>().enabled = true;
+        paddle1.GetComponentInChildren<PointerMotor>().enabled = true;
+        paddle2.GetComponent<PlayerController>().enabled = true;
+        paddle2.GetComponentInChildren<PointerMotor>().enabled = true;
+        balls.ForEach(ResumeMovingBall);
+    }
+
+    public void StopMovingBall(Transform ball) {
+        BallScript script = ball.GetComponent<BallScript>();
+        script.SetVelocity(new Vector2(0f, 0f));
+        script.enabled = false;
+    }
+
+    public void ResumeMovingBall(Transform ball) {
+        BallScript script = ball.GetComponent<BallScript>();
+        script.RestoreSavedVelocity();
+        script.enabled = true;
+    }
+
 }

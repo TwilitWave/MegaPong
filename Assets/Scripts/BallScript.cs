@@ -6,6 +6,7 @@ public class BallScript : MonoBehaviour {
     public float velocityScale;
     public Rigidbody sphereBody;
     public Vector3 velocity;
+    public Vector3 savedVelocity;
 
     // Use this for initialization
     void Awake() {
@@ -43,5 +44,10 @@ public class BallScript : MonoBehaviour {
 
     void Update () {
         sphereBody.velocity = velocity;
+        savedVelocity = velocity;
+    }
+
+    public void RestoreSavedVelocity() {
+        SetVelocity(savedVelocity);
     }
 }
