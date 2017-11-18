@@ -16,6 +16,7 @@ public class GameManager1 : MonoBehaviour {
     public Text scorePlayer1;
     public Text scorePlayer2;
     public Text pauseText;
+    public int winnerId;
 
     
     // All Serializable fields
@@ -59,6 +60,7 @@ public class GameManager1 : MonoBehaviour {
             balls = new List<Transform>();
             ChangeScore(0, 0);
             StartLevel();
+            exists = true;
         } else {
             Destroy(this.gameObject);
         }
@@ -149,7 +151,6 @@ public class GameManager1 : MonoBehaviour {
 
     // Player Die
     public void PlayerDies(int playerId) {
-        int winnerId;
         if (playerId == 1) {
             winnerId = 2;
         }
@@ -162,8 +163,9 @@ public class GameManager1 : MonoBehaviour {
             Debug.Log("You fool, that isn't a valid player ID!");
         }
         OpenEndLevelMenu(winnerId);
+        Debug.Log(winnerId);
         AddToScore(winnerId);
-        RestartLevel();
+        ChangeScene("LevelMenu");
     }
 
     public void DestroyTransform(Transform tf) {

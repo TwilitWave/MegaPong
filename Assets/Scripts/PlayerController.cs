@@ -35,9 +35,7 @@ public class PlayerController : MonoBehaviour {
 
     private float _PrevShootAxis;
 
-    private GameObject _CannonObject;
-
-    private BarrelAnimator _Animator;
+    private GameObject _CannonObject; 
 
     // Use this for initialization
     void Start() {
@@ -46,8 +44,6 @@ public class PlayerController : MonoBehaviour {
 
         _CannonObject = GetComponentInChildren<CannonCollisionInvoker>().gameObject;
         _PointerTransform = GetComponentInChildren<PointerMotor>().transform;
-
-        _Animator = GetComponent<BarrelAnimator>();
     }
 
     // Update is called once per frame
@@ -55,7 +51,9 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetAxis(_InputMoveAxis) != 0)
         {
             transform.position += transform.up * _Speed * Time.deltaTime * Input.GetAxis(_InputMoveAxis);
+
             float clampedY = Mathf.Clamp(transform.position.y, -_MaxTravel, _MaxTravel);
+
             transform.position = new Vector3(transform.position.x, clampedY, transform.position.z);
         }
         if (Input.GetAxis(_InputShootAxis) != 0 && _PrevShootAxis == 0)
@@ -70,7 +68,7 @@ public class PlayerController : MonoBehaviour {
             if (_CaptureTimer <= 0)
             {
                 _CooldownTimer = _CaptureCooldown;
-                _Animator.CloseBarrel();
+
             }
         }
 
@@ -126,7 +124,6 @@ public class PlayerController : MonoBehaviour {
             if (_CaptureTimer <= 0 && _CooldownTimer <= 0)
             {
                 _CaptureTimer = _CaptureDuration;
-                _Animator.OpenBarrel();
             }
         }
     }
