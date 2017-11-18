@@ -151,6 +151,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114107940435581580, guid: 9148bccd13304e5409e22e158a89a0b3,
+        type: 2}
+      propertyPath: sphereBody
+      value: 
+      objectReference: {fileID: 866590961}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9148bccd13304e5409e22e158a89a0b3, type: 2}
   m_IsPrefabParent: 0
@@ -299,6 +304,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &866590961 stripped
+Rigidbody:
+  m_PrefabParentObject: {fileID: 54755632124664022, guid: 9148bccd13304e5409e22e158a89a0b3,
+    type: 2}
+  m_PrefabInternal: {fileID: 27823609}
 --- !u!1001 &1033806878
 Prefab:
   m_ObjectHideFlags: 0
