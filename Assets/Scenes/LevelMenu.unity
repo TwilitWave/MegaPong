@@ -454,8 +454,9 @@ GameObject:
   - component: {fileID: 945943405}
   - component: {fileID: 945943407}
   - component: {fileID: 945943406}
+  - component: {fileID: 945943408}
   m_Layer: 5
-  m_Name: Logo
+  m_Name: Player Wins
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -498,7 +499,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: b0c828a961c7fde449627fdd392eb9bd, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -512,6 +513,31 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 945943404}
+--- !u!114 &945943408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 945943404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4252bba875e0a145b651f779f6b7074, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  paddle1: {fileID: 0}
+  paddle2: {fileID: 0}
+  defBall: {fileID: 0}
+  scorePlayer1: {fileID: 0}
+  scorePlayer2: {fileID: 0}
+  pauseText: {fileID: 0}
+  player1StartPosition: {x: 0, y: 0, z: 0}
+  player2StartPosition: {x: 0, y: 0, z: 0}
+  ball1StarPosition: {x: 0, y: 0, z: 0}
+  leftSpawnBound: 0
+  rightSpawnBound: 0
+  topSpawnBound: 0
+  bottomSpawnBound: 0
+  startingBallSpeed: 0
 --- !u!1 &1003653860
 GameObject:
   m_ObjectHideFlags: 0
