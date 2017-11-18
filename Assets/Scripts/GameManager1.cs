@@ -9,9 +9,10 @@ public class GameManager1 : MonoBehaviour {
     // All the objects the game manager needs to see
     public PlayerController paddle1;
     public PlayerController paddle2;
-    //public Ball ball1;
+    public Transform defBall;
     public Text scorePlayer1;
     public Text scorePlayer2;
+    
 
     
     // All Serializable fields
@@ -36,13 +37,18 @@ public class GameManager1 : MonoBehaviour {
     [SerializeField]
     private float bottomSpawnBound;
 
+    [SerializeField]
+    private float startingBallSpeed;
+
     // All private, internal fields needed
     private int player1Score;
     private int player2Score;
+    private List<Transform> balls;
 
     // Use this for initialization
     void Start () {
         ChangeScore(1, 2);
+        StartLevel();
 	}
 	
 	// Update is called once per frame
@@ -59,7 +65,7 @@ public class GameManager1 : MonoBehaviour {
         ChangeScore(0, 0);
         paddle1.transform.position = player1StartPosition;
         paddle2.transform.position = player2StartPosition;
-        //ball1.trasform.position = ball1StartPosition;
+        SpawnBall();
     }
 
     // Restart Level
@@ -105,7 +111,15 @@ public class GameManager1 : MonoBehaviour {
     public void SpawnBall() {
         float randX = Random.Range(leftSpawnBound, rightSpawnBound);
         float randY = Random.Range(bottomSpawnBound, topSpawnBound);
-
+        float dirX = Random.Range(-1, 1);
+        while (dirX == 0) {
+            dirX = Random.Range(-1, 1);
+        }
+        float dirY = Random.Range(-1, 1);
+        Vector3 startVelocity = startingBallSpeed * (new Vector3(dirX, dirY, 0)).normalized;
+        Transform newBall = Instantiate(defBall, new Vector3(randX, randY, 0), Quaternion.identity);
+        newBall.GetComponent<BallScript>().SetVelocity(startVelocity);
+        balls.Add(newBall);
     }
 
 }

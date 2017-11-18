@@ -8,10 +8,13 @@ public class BallScript : MonoBehaviour {
     public Vector3 velocity;
 
     // Use this for initialization
-    void Start () {
-        //Random Speed
+    void OnAwake() {
         sphereBody = GetComponent<Rigidbody>();
         sphereBody.velocity = new Vector2(5, 0);
+    }
+
+    void Start () {
+        
     }
 
     public void SetVelocity(Vector2 i_velocity)
