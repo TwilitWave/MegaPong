@@ -8,8 +8,6 @@ public class TriggerUEvent : MonoBehaviour {
     [SerializeField]
     private UnityEvent _Event;
 
-    public string Mask;
-
 	// Use this for initialization
 	void Start () {
 		
@@ -22,7 +20,6 @@ public class TriggerUEvent : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.GetComponent<BallScript>() != null)
-         _Event.Invoke();
+        _Event.Invoke();
     }
 }

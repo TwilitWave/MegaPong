@@ -10,16 +10,6 @@ public class ButtonManager : MonoBehaviour {
         SceneManager.LoadScene(gameLevel);
     }
 
-    public void MainMenuBttn(string mainMenu)
-    {
-        SceneManager.LoadScene(mainMenu);
-    }
-
-    public void ExitBttn()
-    {
-        Application.Quit();
-    }
-
     public void SetActive(GameObject item)
     {
         item.SetActive(true);
