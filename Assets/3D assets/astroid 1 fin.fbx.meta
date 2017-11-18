@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 6b9481baeeb19e44a8cbd279a9272139
-timeCreated: 1510982421
+guid: efe138196e33c8d45a78a15a85cb11da
+timeCreated: 1510982317
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -9,39 +9,14 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Box002
+    4300000: astroid_dec_1:Group63124
     9500000: //RootNode
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Black
-    second: {fileID: 2100000, guid: 95b9ab524a0c4ed49aaccc1c468af38f, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Grey
-    second: {fileID: 2100000, guid: 11a8ae80232ac2c42bffc17475572eb7, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Playership_white
-    second: {fileID: 2100000, guid: 6974d071b9291034f995455561583f50, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Red
-    second: {fileID: 2100000, guid: 544f3442d06fe24468849b3e96f1b586, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Red_glow
-    second: {fileID: 2100000, guid: d2121aecb715c32469b59dc21c6efe2a, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: lambert1
-    second: {fileID: 2100000, guid: 2d08fe5956117ee428946e7f138f08f3, type: 2}
+      name: Astroid_1
+    second: {fileID: 2100000, guid: cb27f3389a59e5042b4f74e0e3dc604a, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
