@@ -47,6 +47,7 @@ public class GameManager1 : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        balls = new List<Transform>();
         ChangeScore(1, 2);
         StartLevel();
 	}
