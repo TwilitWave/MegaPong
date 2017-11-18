@@ -163,7 +163,7 @@ public class GameManager1 : MonoBehaviour {
         }
         OpenEndLevelMenu(winnerId);
         AddToScore(winnerId);
-        RestartLevel();
+        ChangeScene("LevelMenu");
     }
 
     public void DestroyTransform(Transform tf) {
