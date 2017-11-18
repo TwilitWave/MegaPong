@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 59d569862c300ee47b2c7e7e5d47368b
-timeCreated: 1510983549
+timeCreated: 1510991632
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
@@ -87,10 +87,10 @@ TextureImporter:
       name: inactive_buttons 1_new_game
       rect:
         serializedVersion: 2
-        x: 16
-        y: 715
-        width: 513
-        height: 150
+        x: 0
+        y: 695
+        width: 548
+        height: 189
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -101,10 +101,10 @@ TextureImporter:
       name: inactive_buttons_exit
       rect:
         serializedVersion: 2
-        x: 652
-        y: 712
-        width: 276
-        height: 152
+        x: 633
+        y: 695
+        width: 313
+        height: 189
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,10 +115,10 @@ TextureImporter:
       name: inactive_buttons_restart
       rect:
         serializedVersion: 2
-        x: 32
-        y: 419
-        width: 425
-        height: 150
+        x: 13
+        y: 400
+        width: 464
+        height: 189
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -129,10 +129,10 @@ TextureImporter:
       name: inactive_buttons_start
       rect:
         serializedVersion: 2
-        x: 603
-        y: 418
-        width: 342
-        height: 150
+        x: 583
+        y: 399
+        width: 381
+        height: 189
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,10 +143,10 @@ TextureImporter:
       name: inactive_buttons_resume
       rect:
         serializedVersion: 2
-        x: 32
-        y: 103
-        width: 426
-        height: 149
+        x: 14
+        y: 83
+        width: 464
+        height: 189
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -157,10 +157,10 @@ TextureImporter:
       name: inactive_buttons_credits
       rect:
         serializedVersion: 2
-        x: 560
-        y: 102
-        width: 428
-        height: 150
+        x: 542
+        y: 83
+        width: 464
+        height: 189
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
